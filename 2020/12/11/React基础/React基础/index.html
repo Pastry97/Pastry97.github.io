@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="Pastry97">
   <meta name="keywords" content="">
-  <title>Pastry97&#39;s Blog</title>
+  <title>React基础 - Pastry97&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.5.3/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="">
+            <span class="h2" id="subtitle" title="React基础">
               
             </span>
 
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      3.8k 字
+      3.7k 字
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      47
+      45
        分钟
     </span>
   
@@ -224,17 +224,10 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none"></h1>
+            <h1 style="display: none">React基础</h1>
             
             <div class="markdown-body">
-              <blockquote>
-<p>title: postName #文章页面上的显示名称，一般是中文 </p>
-<p>date: 2013-12-02 15:30:16 #文章生成时间，一般不改，当然也可以任意修改 </p>
-<p>categories: 默认分类 #分类 </p>
-<p>tags: [tag1,tag2,tag3] #文章标签，可空，多标签请用格式，注意:后面有个空格 </p>
-<p>description: 附加一段文章摘要，字数最好在140字以内，会出现在meta的description里面</p>
-</blockquote>
-<h3 id="相关背景知识与概述"><a href="#相关背景知识与概述" class="headerlink" title="相关背景知识与概述"></a>相关背景知识与概述</h3><h4 id="WEB单页应用与多页应用"><a href="#WEB单页应用与多页应用" class="headerlink" title="WEB单页应用与多页应用"></a>WEB单页应用与多页应用</h4><h5 id="多页应用（MPA）"><a href="#多页应用（MPA）" class="headerlink" title="多页应用（MPA）"></a>多页应用（MPA）</h5><p>每一次页面跳转的时候，后台服务器都会给返回一个新的<code>html</code>文档，这种类型的网站也就是多页网站，也叫做多页应用。多页应用首屏时间快，SEO (搜索引擎优化) 效果好，但页面切换慢。</p>
+              <h3 id="相关背景知识与概述"><a href="#相关背景知识与概述" class="headerlink" title="相关背景知识与概述"></a>相关背景知识与概述</h3><h4 id="WEB单页应用与多页应用"><a href="#WEB单页应用与多页应用" class="headerlink" title="WEB单页应用与多页应用"></a>WEB单页应用与多页应用</h4><h5 id="多页应用（MPA）"><a href="#多页应用（MPA）" class="headerlink" title="多页应用（MPA）"></a>多页应用（MPA）</h5><p>每一次页面跳转的时候，后台服务器都会给返回一个新的<code>html</code>文档，这种类型的网站也就是多页网站，也叫做多页应用。多页应用首屏时间快，SEO (搜索引擎优化) 效果好，但页面切换慢。</p>
 <h5 id="单页应用（SPA）"><a href="#单页应用（SPA）" class="headerlink" title="单页应用（SPA）"></a>单页应用（SPA）</h5><p>第一次进入页面的时候会请求一个<code>html</code>文件，刷新清除一下。切换到其他组件，此时路径<code>url</code>也相应变化，<code>js</code>会感知到<code>url</code>的变化，通过这一点可以用<code>js</code>动态地将当前页面的内容清除，然后将下一个页面的内容挂载到当前页面上。这个时候的路由不再是后端来做了，而是前端来做，判断页面显示相应的组件，清除不需要的。以这种方式，没有新的<code>html</code>文件请求，页面内容也变化了。SPA的页面跳转是js渲染，页面切换快，但首屏时间（html请求+js请求）稍慢，SEO差。</p>
 
 
