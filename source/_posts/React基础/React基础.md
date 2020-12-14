@@ -1,14 +1,15 @@
-> title: postName #文章页面上的显示名称，一般是中文 
->
-> date: 2013-12-02 15:30:16 #文章生成时间，一般不改，当然也可以任意修改 
->
-> categories: 默认分类 #分类 
->
-> tags: [tag1,tag2,tag3] #文章标签，可空，多标签请用格式，注意:后面有个空格 
->
-> description: 附加一段文章摘要，字数最好在140字以内，会出现在meta的description里面
+---
+title: React实战-基础讲解
+date: 2020-12-11 12:00:00
+categories: 
+- Web前端
+tags:
+- React
+---
 
+> 课程demo，我负责的任务是demo前端，正好学习并总结一下React的使用，本文先对React的基础知识做一些介绍，在此之前，需要对html、css和javascript的相关知识有一定了解
 
+*本文仅对一些React相关的基础知识进行讲解，系统学习可参考文末的参考链接*
 
 ### 相关背景知识与概述
 
@@ -36,7 +37,7 @@ React 是一个声明式，高效且灵活的用于构建用户界面的 JavaScr
 
 ### 相关工具
 
-#### 脚手架-webpack
+#### webpack
 
 webpack 是一个前端资源加载/打包工具。它将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。webpack依赖nodejs和npm。
 
@@ -46,7 +47,7 @@ npm install webpack -g  # 全局安装
 
 #### create-react-app
 
-Create React App 是一个官方支持的创建 React 单页应用程序的方法。它提供了一个零配置的现代构建设置。
+Create React App 是一个官方支持的创建 React **单页应用**程序的方法。它提供了一个零配置的现代构建设置。
 
 ```
 npm install -g create-react-app # 利用npm全局安装
@@ -237,10 +238,10 @@ handleSomething() {
 
 每个组件都包含 “生命周期方法”，可重写这些方法以便于在运行过程中特定的阶段执行特定操作，包括：
 
-- **constructor()**，构造函数，React 组件挂载之前，会调用这个函数。一般重写该函数来给 `this.state` 赋初始值或为时间处理函数绑定实例。在为 React.Component 子类实现构造函数时，应在其他语句之前前调用`super(props)`，否则，`this.props` 在构造函数中可能会出现未定义的 bug
+- constructor()，构造函数，React 组件挂载之前，会调用这个函数。一般重写该函数来给 `this.state` 赋初始值或为时间处理函数绑定实例。在为 React.Component 子类实现构造函数时，应在其他语句之前前调用`super(props)`，否则，`this.props` 在构造函数中可能会出现未定义的 bug
 - getDriveredStateFromProps()
-- **render()**，`render()` 方法是 class 组件中唯一必须实现的方法，它检查 `this.props` 和 `this.state` 的变化并返回React元素，在不修改组件 state 的情况下，每次调用时都返回相同的结果，并且它不会直接与浏览器交互。
-- **componentDidMount()**，`componentDidMount()` 会在组件挂载后（插入 DOM 树中）立即调用。依赖于 DOM 节点的初始化应该放在这里。
+- render()，`render()` 方法是 class 组件中唯一必须实现的方法，它检查 `this.props` 和 `this.state` 的变化并返回React元素，在不修改组件 state 的情况下，每次调用时都返回相同的结果，并且它不会直接与浏览器交互。
+- componentDidMount()，`componentDidMount()` 会在组件挂载后（插入 DOM 树中）立即调用。依赖于 DOM 节点的初始化应该放在这里，需要注意的是组件mount后，上层组件使其props更新后仅会update而不会重新mount。
 - **componentDidUpdate()**，`componentDidUpdate()` 会在更新后会被立即调用。首次渲染不会执行此方法。
 - **componentWillUnmount()**，`componentWillUnmount()` 会在组件卸载及销毁之前直接调用。在此方法中执行必要的清理操作，如清除 timer，取消网络请求或清除在 `componentDidMount()` 中创建的订阅等。
 
@@ -277,7 +278,9 @@ ReactDOM.render(
 
 通过上面关于`props`和`state`的介绍，我们知道`props`只能由上层级组件传入下层级组件，所以称为**向下流动的数据**，而`state`又只能在当前组件中记录状态，直接使用`props`和`state`似乎无法完成**下层级到上层级**或**同层级组件**间的数据传输，但结合回调函数，我们可以以一种名为**状态提升**的方式实现
 
-以下层组件向上层组件传输数据为例，我们有上层组件`Base`，下层组件`Child`，通过用户输入我们在`Child`中获得数据`data`，我们的目标是将`data`从`Child`传入`Base`中。首先我们在`Base`中设定一个状态`this.state.data`（非必需）以及一个修改/传递数据的函数`handleData`（必需），并将`handleData`这个函数通过`props`传入`Child`，当`Child`获得`data`后，通过一定的事件（如点击`onClick`事件）调用父级组件的`handleData`函数，将`data`传入`Base`。
+以下层组件向上层组件传输数据为例，我们有上层组件`Base`，下层组件`Child`，通过用户输入我们在`Child`中获得数据`data`，我们的目标是将`data`从`Child`传入`Base`中。
+
+首先我们在`Base`中设定一个修改/传递数据的函数`handleData`，将`handleData`这个函数通过`props`传入`Child`，当`Child`获得`data`后，通过一定的事件（如点击`onClick`事件）调用父级组件的`handleData`函数，将`data`传入`Base`。
 
 如下是一个状态提升的示例，程序提供两个输入框分别显示华氏温度和摄氏温度，用户输入其中一个，另一个输入框根据输入自动更新，详细信息可见[状态提升-React中文文档](https://reactjs.bootcss.com/docs/lifting-state-up.html)。
 
