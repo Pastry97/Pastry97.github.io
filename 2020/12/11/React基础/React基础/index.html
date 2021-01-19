@@ -233,9 +233,7 @@
 <p><em>本文仅对一些React相关的基础知识进行讲解，系统学习可参考文末的参考链接</em></p>
 <h3 id="相关背景知识与概述"><a href="#相关背景知识与概述" class="headerlink" title="相关背景知识与概述"></a>相关背景知识与概述</h3><h4 id="WEB单页应用与多页应用"><a href="#WEB单页应用与多页应用" class="headerlink" title="WEB单页应用与多页应用"></a>WEB单页应用与多页应用</h4><h5 id="多页应用（MPA）"><a href="#多页应用（MPA）" class="headerlink" title="多页应用（MPA）"></a>多页应用（MPA）</h5><p>每一次页面跳转的时候，后台服务器都会给返回一个新的<code>html</code>文档，这种类型的网站也就是多页网站，也叫做多页应用。多页应用首屏时间快，SEO (搜索引擎优化) 效果好，但页面切换慢。</p>
 <h5 id="单页应用（SPA）"><a href="#单页应用（SPA）" class="headerlink" title="单页应用（SPA）"></a>单页应用（SPA）</h5><p>第一次进入页面的时候会请求一个<code>html</code>文件，刷新清除一下。切换到其他组件，此时路径<code>url</code>也相应变化，<code>js</code>会感知到<code>url</code>的变化，通过这一点可以用<code>js</code>动态地将当前页面的内容清除，然后将下一个页面的内容挂载到当前页面上。这个时候的路由不再是后端来做了，而是前端来做，判断页面显示相应的组件，清除不需要的。以这种方式，没有新的<code>html</code>文件请求，页面内容也变化了。SPA的页面跳转是js渲染，页面切换快，但首屏时间（html请求+js请求）稍慢，SEO差。</p>
-
-
-<p><img src="/img/React%E5%9F%BA%E7%A1%80_MPA&SPA.png" srcset="/img/loading.gif" alt="11880611-4dbea14cfa0b17c0"></p>
+<p><img src="/img/React%E5%9F%BA%E7%A1%80_MPA&SPA.png" srcset="/img/loading.gif" alt="React基础_MPA&amp;SPA"></p>
 <h4 id="React"><a href="#React" class="headerlink" title="React"></a>React</h4><p>React 是一个声明式，高效且灵活的用于构建用户界面的 JavaScript 库。使用 React 可以将一些简短、独立的代码片段组合成复杂的 UI 界面，这些代码片段被称作<strong>“组件”</strong>。</p>
 <h3 id="相关工具"><a href="#相关工具" class="headerlink" title="相关工具"></a>相关工具</h3><h4 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h4><p>webpack 是一个前端资源加载/打包工具。它将根据模块的依赖关系进行静态分析，然后将这些模块按照指定的规则生成对应的静态资源。webpack依赖nodejs和npm。</p>
 <pre><code class="hljs cmake">npm <span class="hljs-keyword">install</span> webpack -g  <span class="hljs-comment"># 全局安装</span></code></pre>
@@ -380,7 +378,7 @@ ReactDOM.render(
   <span class="hljs-comment">// 但是，当 React 重新渲染该组件时，它会变为 3。</span>
 &#125;</code></pre>
 
-<p><strong>组件生命周期</strong>可见<a target="_blank" rel="noopener" href="https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/">官方生命周期图谱<img src="img/React%E5%9F%BA%E7%A1%80_process.png" srcset="/img/loading.gif" alt="1607660543(1)"></a></p>
+<p><strong>组件生命周期</strong>可见<a target="_blank" rel="noopener" href="https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/">官方生命周期图谱<img src="img/React%E5%9F%BA%E7%A1%80_process.png" srcset="/img/loading.gif" alt="React基础_process"></a></p>
 <p>每个组件都包含 “生命周期方法”，可重写这些方法以便于在运行过程中特定的阶段执行特定操作，包括：</p>
 <ul>
 <li>constructor()，构造函数，React 组件挂载之前，会调用这个函数。一般重写该函数来给 <code>this.state</code> 赋初始值或为时间处理函数绑定实例。在为 React.Component 子类实现构造函数时，应在其他语句之前前调用<code>super(props)</code>，否则，<code>this.props</code> 在构造函数中可能会出现未定义的 bug</li>
