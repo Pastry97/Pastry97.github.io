@@ -24,10 +24,7 @@ tags:
 第一次进入页面的时候会请求一个`html`文件，刷新清除一下。切换到其他组件，此时路径`url`也相应变化，`js`会感知到`url`的变化，通过这一点可以用`js`动态地将当前页面的内容清除，然后将下一个页面的内容挂载到当前页面上。这个时候的路由不再是后端来做了，而是前端来做，判断页面显示相应的组件，清除不需要的。以这种方式，没有新的`html`文件请求，页面内容也变化了。SPA的页面跳转是js渲染，页面切换快，但首屏时间（html请求+js请求）稍慢，SEO差。
 
 
-
-{% asset_img 11880611-4dbea14cfa0b17c0.png This is an example image %}
-
-![11880611-4dbea14cfa0b17c0](11880611-4dbea14cfa0b17c0.png)
+![React基础_MPA&SPA](/img/React基础_MPA&SPA.png)
 
 #### React
 
@@ -234,7 +231,7 @@ handleSomething() {
 }
 ```
 
-**组件生命周期**可见[官方生命周期图谱![1607660543(1)](1607660543(1).png)](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+**组件生命周期**可见[官方生命周期图谱![React基础_process](img/React基础_process.png)](https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
 每个组件都包含 “生命周期方法”，可重写这些方法以便于在运行过程中特定的阶段执行特定操作，包括：
 

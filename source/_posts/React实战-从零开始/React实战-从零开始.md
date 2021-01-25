@@ -101,10 +101,12 @@ function App() {  // 函数组件
 export default App;  // 导出该组件，如果导出多个，可以用export {aaa, bbb}，如果是从一个文件中导出一个组件，那就需要用default
 ```
 总的来说，初始代码只是将App组件插入root节点，通过分析APP.js发现，该组件仅包含一个logo，一句提示和一条链接（当然也会有初始好的样式App.css），我们可以通过`npm start`指令运行代码，并在浏览器中进入`http://localhost:3000/`中进行查看，值得一提的是，我们可以一边运行一边修改代码，保存后修改会自动显示到页面上。
-![edited page](editedPage.png)
+![Edited Page](/img/React实战_从零开始_editedPage.png)
 # 组件库的使用
 >React、Vue这类前端框架很方便的一点是有大量的成熟UI组件库供开发者使用。组件库顾名思义，也就是一个包含许多已经编写好的组件的库，我们这次使用[Antd UI组件库](https://ant.design/docs/react/introduce-cn)。
 
 我们可以在Antd官网的[组件总览](https://ant.design/components/overview-cn/)中选取我们需要的组件
+
+zheli
 
 
